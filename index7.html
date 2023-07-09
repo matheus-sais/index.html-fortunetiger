@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FORTUNE TIGER HACKEADO</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      text-align: center;
+      font-size: 36px;
+      padding-top: 5cm;
+    }
+    img {
+      width: 500px;
+      height: 268px;
+    }
+
+    #hackear-sinal {
+      background-color: red;
+      color: white;
+      font-size: 48px;
+      width: 400px;
+      height: 120px;
+      margin: 0 auto;
+      margin-top: 3cm;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h1>FORTUNE TIGER HACKEADO</h1>
+  <h2>O HACKER OFICIAL DO FORTUNE TIGER</h2>
+  <img src="content://media/external/downloads/36469" alt="Imagem">
+  <h3 id="tempo-regressivo">SINAL VALIDO POR: 03:00</h3>
+  <p>NUMERO DE RODADAS NORMAL: <span id="numero-1"></span></p>
+  <p>NUMERO DE RODADAS TURBO: <span id="numero-2"></span></p>
+  <button id="hackear-sinal">HACKEAR SINAL</button>
+
+  <script>
+    // Função para formatar o tempo regressivo
+    function formatarTempo(segundos) {
+      var minutos = Math.floor(segundos / 60);
+      var segundosRestantes = segundos % 60;
+
+      var minutosFormatados = minutos.toString().padStart(2, "0");
+      var segundosFormatados = segundosRestantes.toString().padStart(2, "0");
+
+      return minutosFormatados + ":" + segundosFormatados;
+    }
+
+    // Função para iniciar o tempo regressivo
+    function iniciarTempoRegressivo() {
+      var segundos = 180; // 3 minutos = 180 segundos
+      var tempoElement = document.getElementById("tempo-regressivo");
+
+      var interval = setInterval(function() {
+        tempoElement.textContent = "SINAL VALIDO POR: " + formatarTempo(segundos);
+
+        if (segundos === 0) {
+          clearInterval(interval);
+          tempoElement.textContent = "TEMPO ESGOTADO";
+        }
+
+        segundos--;
+      }, 1000);
+    }
+
+    // Função para gerar número aleatório
+    function gerarNumeroAleatorio() {
+      return Math.floor(Math.random() * 8) + 1;
+    }
+
+    // Evento de clique no botão para iniciar o tempo regressivo e gerar números aleatórios
+    document.getElementById("hackear-sinal").addEventListener("click", function() {
+      iniciarTempoRegressivo();
+      document.getElementById("numero-1").textContent = gerarNumeroAleatorio();
+      document.getElementById("numero-2").textContent = gerarNumeroAleatorio();
+    });
+  </script>
+   <rodapé> <p>TODOS OS DIREITOS RESERVADOS 2023 | CRIADO POR MATHEUS SAIS</p> </footer> 
+</body>
+</html>
